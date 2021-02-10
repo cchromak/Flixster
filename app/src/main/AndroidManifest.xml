@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.flixster">
-
-   <!-- add permission to the internet, when a user downloads the app they want to understand
-   what the different permission that are needed-->
+    <!--
+   add permission to the internet, when a user downloads the app they want to understand
+   what the different permission that are needed
+    -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -13,8 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Flixster">
+        <activity android:name=".DetailActivity"></activity>
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
