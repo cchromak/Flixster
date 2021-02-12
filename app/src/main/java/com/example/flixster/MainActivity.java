@@ -1,11 +1,14 @@
 package com.example.flixster;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -45,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Set a Layout Manger on the recycler view
         rvMovies.setLayoutManager(new LinearLayoutManager(this));
-
 
 
         /* create an instance of the asynchttpclient*/

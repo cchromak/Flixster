@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- change to linear layout, need to establish orientation-->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivity"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".DetailActivity">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/player"
@@ -16,9 +15,11 @@
 
     <TextView
         android:id="@+id/tvTitle"
+        android:transitionName="title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30sp"
+        android:background="@color/white"
         tools:text="It Chapter Two" />
 
     <RatingBar
@@ -28,11 +29,14 @@
         android:layout_height="wrap_content"
         android:isIndicator="true"
         android:numStars="10"
+        android:background="@color/white"
         android:rating="8.5" />
 
     <TextView
         android:id="@+id/tvOverview"
+        android:transitionName="profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="this is a loooooooong desssscript tiosnalfsjdf asldffjas;l asdlfjsadl;jadsf;ldsj f sldfjsf;j fs" />
+
 </LinearLayout>

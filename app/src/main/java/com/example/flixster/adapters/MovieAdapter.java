@@ -1,22 +1,29 @@
 package com.example.flixster.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.util.Log;
+
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.flixster.DetailActivity;
+import com.example.flixster.MainActivity;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
 
@@ -30,6 +37,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     * and a list of data*/
     Context context;
     List<Movie> movies;
+
+
 
     public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
@@ -111,7 +120,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     // i.putExtra("title", movie.getTitle());
                     // instead use Parcel lib and wrap defined object
                     i.putExtra("movie", Parcels.wrap(movie));
-                    context.startActivity(i);
+                    // Using distinct transitions names which were placed in the activity_detail and item_movie .xml
+                    // you can animate multiple elements. do NOT use default import of android.util.Pair.
+                    // generically, use distinct transition names in source and target layout xml files.
+                    Pair<View, String> p1 = Pair.create((TextView) tvTitle, "title");
+                    Pair<View, String> p2 = Pair.create((TextView) tvOverview, "profile");
+                    Pair<View, String> p3 = Pair.create((ImageView) ivPoster, "poster");
+                 //   Pair<View, String> p4 = Pair.create((TextView) tvOverview, "profile");
+                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, p1, p2, p3);
+
+                    context.startActivity(i, options.toBundle());
                 }
             });
         }
